@@ -90,7 +90,7 @@
     "electron-packager": "^15.4.0"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron src/"
   },
   "keywords": [
     "better",
