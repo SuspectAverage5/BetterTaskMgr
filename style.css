@@ -1,0 +1,332 @@
+:root {
+    --bg-color: linear-gradient(90deg, rgba(32,32,32,1) 0%, rgba(42,42,42,1) 49%, rgba(32,32,32,1) 100%);
+    --text-color: rgb(165, 161, 161);
+    --global-font-family: Consolas;
+    --select-color: rgb(65, 65, 65); 
+    --normal-bg-color: rgb(43, 43, 43);
+}
+
+body {
+    background: var(--bg-color);
+    font-family: var(--global-font-family);
+}
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: transparent;
+    border: transparent 1px solid;
+    color: var(--text-color);
+    transition: background 0.2s linear;
+    box-shadow:
+        0px 0px 3.6px rgba(0, 0, 0, 0.031),
+        0px 0px 10px rgba(0, 0, 0, 0.045),
+        0px 0px 24.1px rgba(0, 0, 0, 0.059),
+        0px 0px 80px rgba(0, 0, 0, 0.09);
+}
+
+button:hover {
+    background-color: var(--select-color);
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+/* Options bar */
+#optionsbar {
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid rgb(102, 102, 102);
+    padding: 0;
+    margin: 0;
+}
+
+#optionsbar_button { 
+    outline: none;
+    border-top: 1px solid rgb(168, 168, 168);
+    border-left: 1px solid rgb(168, 168, 168);
+    border-right: 1px solid rgb(168, 168, 168);
+    width: 14%;
+    height: 90%;
+    background-color: var(--normal-bg-color);
+    border-top-left-radius: 5px;
+    font-family: var(--global-font-family);
+    border-top-right-radius: 5px;
+    transition: transform 0.2s ease-out;
+    color: var(--text-color);
+}
+
+#optionsbar_button:focus {
+    background-color: var(--select-color);
+    transform: scaleY(1.1);
+}
+
+#optionsbar_button:hover {
+    background-color: var(--select-color);
+}
+
+/* Main */
+#main {
+    width: 100%;
+    height: 75%;
+}
+
+#processes_table {
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+#processes_table thead th {
+    background: var(--bg-color);
+    color: var(--text-color);
+    text-align: left;
+}
+
+#processes_table th,
+#processes_table td {
+    padding: 12px 15px;
+}
+
+#processes_table thead th {
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+}
+
+#processes_table tbody tr {
+    color: var(--text-color);
+}
+
+/* #processes_table tbody tr:nth-of-type(even) {
+    background-color: rgb(39, 39, 39);
+
+}
+
+#processes_table tbody tr:nth-of-type(odd) {
+    background-color: rgb(8, 8, 8);
+} */
+
+#processes_table tr {
+    border: 1px solid rgb(255, 255, 255);
+}
+
+
+/* topbar */
+#topbar {
+    color: var(--text-color);
+    background: var(--bg-color); 
+    width: 100%;
+    height: 5%;
+    display: flex;
+}
+
+#topbar_button {
+    padding-left: 1%;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-family: var(--global-font-family);
+    font-size: 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: background-color 0.2s linear;
+}
+
+#topbar_button:hover {
+    background-color: var(--select-color);
+}
+
+/* menu */
+#menu {
+    width: 9%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--normal-bg-color);
+    color: var(--text-color);
+    font-family: var(--global-font-family);
+    font-size: 15px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 2;
+    box-shadow:
+        0px 0px 3.6px rgba(0, 0, 0, 0.031),
+        0px 0px 10px rgba(0, 0, 0, 0.045),
+        0px 0px 24.1px rgba(0, 0, 0, 0.059),
+        0px 0px 80px rgba(0, 0, 0, 0.09);
+}
+
+@keyframes menu_start {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* performance tab */
+#info_categ_title {
+    font-size: large;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+#info_categ_desc {
+    font-size: smaller;
+    padding-left: 12px;
+    color: rgb(170, 170, 170);
+}
+
+.info_categ {
+    width: 20%;
+    color: var(--text-color);
+    transition: background 0.2s linear;
+    border: transparent 1px solid;
+    border-radius: 5px;
+}
+
+.info_categ:hover {
+    background-color: var(--select-color);
+}
+
+.info_categ:focus {
+    background-color: var(--select-color);
+}
+
+#main_p_bar {
+    /* make div horizontal */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+#separator {
+    /* make a line */
+    border-bottom: 1px solid rgb(168, 168, 168);
+    margin: 10px 0;
+}
+
+progress {
+    appearance: none; 
+    width: 80%;
+}
+
+progress[value]::-webkit-progress-bar {
+    border: transparent solid 1px;
+    border-radius: 5px;
+}
+
+progress[value]::-webkit-progress-value {
+    border: transparent solid 1px;
+    border-radius: 5px;
+    background-color: var(--fillcolor);
+}
+
+progress::-webkit-progress-value {
+    transition: width 1s ease-in;
+}
+
+#info_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+#info_mp p:nth-of-type(1) {
+    font-size: large;
+    font-weight: bold;
+}
+
+#info_mp p:nth-of-type(2) {
+    color: rgb(168, 168, 168);
+    font-size: small;
+}
+
+.menu_btn {
+    width: 100%;
+}
+
+.menu_btn:active {
+    background-color: rgb(63, 63, 63);
+    border-radius: 8px;
+}
+
+#prompt_ {
+    animation: fadeIn 0.5s ease-out;
+    background-color: rgb(133, 133, 133);
+    position: absolute;
+    z-index: 2;
+    width: 20%;
+    border: transparent 1px solid;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+input {
+    border: transparent 1px solid;
+    border-radius: 5px;
+    outline-width: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(186,186,186,1) 100%);
+}
+
+select {
+    border: transparent 1px solid;
+    border-radius: 5px;
+    outline-width: 0;
+    background: var(--normal-bg-color);
+    color: var(--text-color);
+}
+
+option {
+    color: var(--text-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+#utilButtons_ {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 10%;
+    height: fit-content;
+    margin: 10px;
+    /* overflow-x: auto; */
+    overflow-y: hidden;
+    position: absolute;
+    right: 0;
+}
+
+.utilButtons {
+    font-size: medium;
+}
+
+.utilButtons:hover{
+    animation: utilBtnHoverS 0.2s ease-out;
+}
+
+@keyframes utilBtnHoverS {
+
+}
