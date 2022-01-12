@@ -414,7 +414,8 @@ const TopBarActions = action => {
                     return;
                 }
 
-                alert("STDOUT: " + stdout);
+                if (stdout)
+                    alert("STDOUT: " + stdout);
             });
         });
     }
