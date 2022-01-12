@@ -14,29 +14,43 @@ const createWindow = () => {
             contextIsolation: false,
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
-            nodeIntegrationInSubFrames: true,
-          },
-          frame: false,
-          show: false
+            nodeIntegrationInSubFrames: true
+        },
+        frame: false,
+        show: false
     });
-
-    mainWindow.loadFile("index.html");
-    mainWindow.show();
 };
 
-app.whenReady().then(() => {
-    createWindow();
-
-
+const start = () => {
+    mainWindow.loadFile("index.html");
+    mainWindow.once("ready-to-show", () => {
+        splash.destroy();
+        mainWindow.show();
+    });
+    
     app.on("activate", () => {
         // macOS only
         if (BrowserWindow.getAllWindows().length === 0)
             createWindow();
     });
+};
+
+app.whenReady().then(() => {
+    createWindow();
+
+    splash = new BrowserWindow({
+        width: 512, 
+        height: 512, 
+        transparent: true,
+        frame: false, 
+        alwaysOnTop: true
+    });
+    
+    splash.loadFile(`splash.html`);
+    setTimeout(start, 4000);
 });
 
 app.on('window-all-closed', function () {
-    // macOS only because it sucks
     if (process.platform !== 'darwin') 
         app.quit();
 });
