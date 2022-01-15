@@ -81,6 +81,7 @@
     "universalify": "^0.1.2",
     "url-parse-lax": "^3.0.0",
     "util-deprecate": "^1.0.2",
+    "v8-compile-cache": "^2.3.0",
     "wrappy": "^1.0.2",
     "yallist": "^4.0.0",
     "yauzl": "^2.10.0"

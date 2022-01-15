@@ -32,6 +32,8 @@ const {
 
 const { clear, Console } = require('console');
 const { app } = require('electron');
+require("v8-compile-cache");
+
 var performance_interval = null;
 var shared_performance = {
     "cpu": 0,
