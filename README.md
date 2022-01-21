@@ -1,6 +1,8 @@
 # BetterTaskMgr
 An improved version of the windows 10 task manager.
 
+![BeterTaskMgr](/src/BetterTaskMgr.png)
+
 **Features that TaskMgr doesn't have**  
 * 🌙 Dark Mode
 * ✨ A more futuristic looking interface
