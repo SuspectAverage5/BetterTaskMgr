@@ -272,7 +272,8 @@ progress::-webkit-progress-value {
     background-color: rgb(133, 133, 133);
     position: absolute;
     z-index: 2;
-    width: 20%;
+    min-width: 20%;
+    width: auto;
     border: transparent 1px solid;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

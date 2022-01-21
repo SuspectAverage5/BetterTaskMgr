@@ -443,7 +443,7 @@ const TopBarActions = action => {
     }
 
     if (action == "about") {
-        alert("BetterTaskMgr v0.1.0\nCoded by Kenan238 and SuspectAverage5.");
+        alert("BetterTaskMgr v0.1.0<br>Coded by Kenan238 and SuspectAverage5.<br>Github: <strong style=\"color: blue;\">https://github.com/SuspectAverage5/BetterTaskMgr</strong>");
     }
 };
 
