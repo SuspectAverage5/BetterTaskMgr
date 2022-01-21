@@ -1,3 +1,9 @@
+/* 
+ * BetterTaskMgr v.0.1.0
+ * Coded by Kenan238 and SuspectAverage5
+*/
+
+
 const tabs = {
     processes: 0,
     performance: 1,
@@ -6,9 +12,9 @@ const tabs = {
 const topbar_options = {
     file: 0,
     options: 1,
-    view: 2
+    view: 2,
+    about: 3
 };
-
 
 var currentButton     = null;
 var currentTab        = tabs[Object.keys(tabs)[0]];
@@ -39,7 +45,6 @@ var shared_performance = {
     "cpu": 0,
     "mem": 0,
 };
-
 
 var showingMorePerfomance = { do: false };
 var refreshSpeeds = {
@@ -436,6 +441,10 @@ const TopBarActions = action => {
         refreshSpeed = refreshSpeeds[selectedRefreshSpeed];
         displayTab(currentTab);
     }
+
+    if (action == "about") {
+        alert("BetterTaskMgr v0.1.0\nCoded by Kenan238 and SuspectAverage5.");
+    }
 };
 
 const switchTab = tab => {
@@ -490,6 +499,13 @@ const clickTopBar = btn => {
         </select>
         `;
     }
+
+    if (btn === topbar_options.about) {
+        console.log("I work"); 
+        menu.innerHTML = `
+        <button id="about" class="menu_btn" onclick="TopBarActions('about')">About</button>
+        `;
+    }
 };
 
 const clickButton = btn => {
@@ -504,6 +520,10 @@ const clickButton = btn => {
 
         case topbar_options.view:
             clickTopBar(topbar_options.view);
+            break;
+
+        case topbar_options.about:
+            clickTopBar(topbar_options.about);
             break;
     }
 };
@@ -541,7 +561,6 @@ window.onload = () => {
     };
 
     close.onclick = () => {
-        console.log("Closing");
         ipcRenderer.invoke("quit");
     };
 };
