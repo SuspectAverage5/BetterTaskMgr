@@ -13,7 +13,7 @@ const topbar_options = {
     file: 0,
     options: 1,
     view: 2,
-    about: 3
+    help: 3
 };
 
 var currentButton     = null;
@@ -500,8 +500,7 @@ const clickTopBar = btn => {
         `;
     }
 
-    if (btn === topbar_options.about) {
-        console.log("I work"); 
+    if (btn === topbar_options.help) {
         menu.innerHTML = `
         <button id="about" class="menu_btn" onclick="TopBarActions('about')">About</button>
         `;
@@ -522,8 +521,8 @@ const clickButton = btn => {
             clickTopBar(topbar_options.view);
             break;
 
-        case topbar_options.about:
-            clickTopBar(topbar_options.about);
+        case topbar_options.help:
+            clickTopBar(topbar_options.help);
             break;
     }
 };
