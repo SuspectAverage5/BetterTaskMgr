@@ -21,11 +21,17 @@ const createWindow = () => {
     });
 };
 
+var time = new Date();
+var currentTime = time.getMonth() + 1 + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+
 const start = () => {
     mainWindow.loadFile("index.html");
     mainWindow.once("ready-to-show", () => {
         splash.destroy();
+        console.log(`[${currentTime}]: Splash window destroyed.`);
+        console.log(`[${currentTime}]: Loading Main window...`);
         mainWindow.show();
+        console.log(`[${currentTime}]: Main window loaded.`);
     });
     
     app.on("activate", () => {
@@ -37,6 +43,7 @@ const start = () => {
 
 app.whenReady().then(() => {
     createWindow();
+    console.log(`[${currentTime}]: Preparing app...`);
 
     splash = new BrowserWindow({
         width: 512, 
@@ -56,6 +63,7 @@ app.on('window-all-closed', function () {
 });
 
 ipcMain.handle('quit',  async (event, ...args) => {
+    console.log(`[${currentTime}]: App closed.`);
     app.quit();
 })
 
