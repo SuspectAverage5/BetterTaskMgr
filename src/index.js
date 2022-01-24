@@ -24,6 +24,10 @@ const createWindow = () => {
 var time = new Date();
 var currentTime = time.getMonth() + 1 + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 
+app.setPath('userCache', `${__dirname}/userCache`);
+app.setPath('userData', `${__dirname}/userData`);
+console.log(`[${currentTime}]: Cache folder set to ${__dirname}`);
+
 const start = () => {
     mainWindow.loadFile("index.html");
     mainWindow.once("ready-to-show", () => {
