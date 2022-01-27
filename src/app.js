@@ -443,6 +443,7 @@ const TopBarActions = action => {
     }
 
     if (action == "about") {
+        var memUsage = process.memoryUsage();
         alert(`
             BetterTaskMgr v0.1.0<br>
             Coded by Kenan238 and SuspectAverage5.<br>
@@ -451,7 +452,14 @@ const TopBarActions = action => {
             <strong>App Version</strong><br>
             ${window.clientInformation.appVersion}<br><br>
             <strong>Platform</strong><br>
-            ${window.clientInformation.platform}`
+            ${window.clientInformation.platform}<br><br>
+            <strong>Current Memory Usage</strong><br>
+            <p><strong>RSS: </strong>${(memUsage.rss / 1048576).toFixed(3)} MB</p>
+            <p><strong>Array Buffers: </strong>${(memUsage.arrayBuffers / 1048576).toFixed(3)} MB</p>
+            <p><strong>Heap Total: </strong>${(memUsage.heapTotal / 1048576).toFixed(3)} MB</p>
+            <p><strong>Heap Used: </strong>${(memUsage.heapUsed / 1048576).toFixed(3)} MB</p>
+            <p><strong>External: </strong>${(memUsage.external / 1048576).toFixed(3)} MB</p>
+            `
         );
     }
 };
