@@ -33,7 +33,8 @@ const {
     among_sus,
     top_things_to_do_after_installing_fart_night,
     eggs,
-    jerma_sus
+    jerma_sus,
+    quit
 }   = require("./addons.js");
 
 const { clear, Console } = require('console');

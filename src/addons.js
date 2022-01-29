@@ -1,9 +1,13 @@
+/* 
+ * Addons.js
+ *
+ * Contains some small functions or easter eggs that aren't necessary to the application.
+ *
+ * By SuspectAverage5 and Kenan238
+*/
 
-// // generate random arabic spam
-// // بستيمان يا بت ايبتاسي بمنتسيبمتنس
-// // بسمكينتبسيمكتبايسمنابيتس
-// // سيبتنايسمنتباسيبوةىلاروةءى
-// // صقعخهث
+
+const { ipcRenderer } = require("electron");
 
 var generateRandomArabicSpam = () => { // Easter egg 1
     var spam = "";
@@ -118,7 +122,25 @@ const jerma_sus = () => {
     `);
 };
 
-const eggs = (n=0) => {
+const quit = (confirmation = Boolean) => {
+    if (confirmation == true) {
+        let a = confirm("Are you sure that you want to close the application?");
+        
+        if (a == true) {
+            ipcRenderer.invoke("quit");
+        }
+        
+        else {
+            console.log("Not closing.");
+        }
+    } 
+    
+    else {
+        ipcRenderer.invoke("quit");
+    }
+}
+
+const eggs = (n = 0) => {
     if (n > 2)
         return;
     generateRandomArabicSpam();
@@ -138,5 +160,6 @@ module.exports = {
     among_sus, 
     top_things_to_do_after_installing_fart_night, 
     eggs,
-    jerma_sus
+    jerma_sus,
+    quit
 };
