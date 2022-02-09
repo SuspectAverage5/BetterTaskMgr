@@ -1,7 +1,10 @@
-# BetterTaskMgr
+# BetterTaskMgr 
+<img src="./src/BetterTaskMgr.png" alt="BetterTaskMgr" width="200" height="200" style="float: right;"></img>
+
 An improved version of the windows 10 task manager.
 
-![BeterTaskMgr](/src/BetterTaskMgr.png)
+<!-- ![BeterTaskMgr](/src/BetterTaskMgr.png) -->
+
 
 # Features
 * 🌙 Dark Mode
