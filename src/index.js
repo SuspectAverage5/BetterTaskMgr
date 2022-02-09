@@ -1,6 +1,11 @@
+var configuration = {
+    "userCache": `${__dirname}/userCache`,
+    "userData": `${__dirname}/userData`
+}
+
 const { app, BrowserWindow, remote} = require("electron");
 const path = require("path");
-const { ipcMain } = require('electron')
+const { ipcMain } = require('electron');
 
 var mainWindow;
 
@@ -23,9 +28,21 @@ const createWindow = () => {
 
 var time = new Date();
 var currentTime = time.getMonth() + 1 + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+var configuration_ = JSON.parse(JSON.stringify(configuration));
 
-app.setPath('userCache', `${__dirname}/userCache`);
-app.setPath('userData', `${__dirname}/userData`);
+var userCachePath = configuration_["userCache"];
+var userDataPath = configuration_["userData"];
+
+if (userCachePath === "" || userCachePath === null) {
+    userCachePath = `${__dirname}/userCache`;
+}
+
+if (userDataPath === "" || userDataPath === null) {
+    userDataPath = `${__dirname}/userData`;
+}
+
+app.setPath('userCache', userCachePath);
+app.setPath('userData', userDataPath);
 console.log(`[${currentTime}]: Cache folder set to ${__dirname}`);
 
 const start = () => {
