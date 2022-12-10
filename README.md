@@ -1,4 +1,5 @@
-# BetterTaskMgr 
+# BetterTaskMgr (ABANDONED)
+_this app has been abandoned and was made in my early web dev days, please use another app instead_
 <img src="./src/BetterTaskMgr.png" alt="BetterTaskMgr" width="200" height="200" style="float: right;"></img>
 
 An improved version of the windows 10 task manager.
